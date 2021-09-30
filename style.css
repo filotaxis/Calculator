@@ -8,6 +8,8 @@ body {
     background-color: teal;
     margin: 0;
     padding: 0;
+    font-family: 'Lucida Sans', Verdana, sans-serif;
+
 }
 
 body {
@@ -26,39 +28,42 @@ body {
 }
 
 .calculator {
-    background-color: #c79893;
-    padding: 0 5rem;
+    background-color: #3c3a3b;
+    padding: 0 2rem 2rem 2rem;
     width: 20rem;
+    /* border-radius: 30% 30% 10% 10%; */
+    /* border-top-left-radius: 32rem; */
+    /* border-end-end-radius: 50rem; */
+    border-start-end-radius: 20rem;
 
 }
 
 .top-decoration {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     padding: 2rem 0 1rem 0;
 }
 
 .solar-panel{
     display: flex;
-    border: 3px solid rgb(116, 97, 49);
+    border: 2px solid #585139;
     border-radius: 10px;
 }
 
 .solar-panel>div{
-    border: 3px solid rgb(116, 97, 49);
-    background-color: rgb(58, 42, 2);
-    width: 2rem;
+    border: 1px solid #585139;
+    /* background-color: #634b57; */
+    background-color: #403534;
+    width: 1rem;
 }
 
 .logo>p{
-    font-family: 'Lucida Sans', Verdana, sans-serif;
     color: white;
     text-align: center;
     font-weight: 700;
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin: 0;
     padding: 0;
-
 }
 .logo>p>span{
     font-size: 0.9rem;
@@ -70,12 +75,15 @@ body {
 
 .display-space {
     /* background-color: lightslategrey; */
-    padding: 1rem;
+    padding: 0.5rem;
 }
 
 .display{
     background-color: #7e8a79;
     border-radius: 10px;
+    height: 4rem;
+    margin: 2rem 0 4rem 0;
+
 }
 
 .result{
@@ -103,6 +111,7 @@ body {
 .top-buttons{
     display:flex;
     justify-content: space-around;
+    margin-bottom: 1rem;
 }
 
 .buttons {
@@ -133,8 +142,6 @@ body {
     grid-area:  4 / 4 / 6 / 5;
 }
 
-
-
 #clear{
     display: flex;
     flex-direction: column;
@@ -147,7 +154,7 @@ body {
     font-weight: 700;
     border: none;
     border-radius: 50%;
-    padding: 2.5rem;
+    padding: 2rem;
     width: 4rem;
     height: 4rem;
 }
@@ -162,15 +169,33 @@ body {
     margin: 0;
 }
 
+.top-buttons>div{
+    display: flex;
+    align-items: flex-end;
+    gap: 1rem;
+    padding-bottom: 1rem;
+}
+
+.top-buttons>div>div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.top-buttons>div>div>p {
+    color: #FFF;
+    font-weight: 500;
+    margin: 0;
+}
+
 .misc{
     background-color: yellow;
-    width: 4.5rem;
+    width: 4rem;
     height: 1rem;
     border: none;
     border-radius: 40%;
-
 }
-
 
 footer {
     min-height: 50px;
