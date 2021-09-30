@@ -1,3 +1,178 @@
-html{
-    background-color: dimgray;
+@font-face {
+    font-family: sevenSegments;
+    src: url(fonts/Seven\ Segment.ttf);
+}
+
+html,
+body {
+    background-color: teal;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.container {
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator {
+    background-color: #c79893;
+    padding: 0 5rem;
+    width: 20rem;
+
+}
+
+.top-decoration {
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem 0 1rem 0;
+}
+
+.solar-panel{
+    display: flex;
+    border: 3px solid rgb(116, 97, 49);
+    border-radius: 10px;
+}
+
+.solar-panel>div{
+    border: 3px solid rgb(116, 97, 49);
+    background-color: rgb(58, 42, 2);
+    width: 2rem;
+}
+
+.logo>p{
+    font-family: 'Lucida Sans', Verdana, sans-serif;
+    color: white;
+    text-align: center;
+    font-weight: 700;
+    font-size: 2rem;
+    margin: 0;
+    padding: 0;
+
+}
+.logo>p>span{
+    font-size: 0.9rem;
+    margin: 0;
+}
+.logo>p:nth-child(2) {
+    font-size: 1rem;
+}
+
+.display-space {
+    /* background-color: lightslategrey; */
+    padding: 1rem;
+}
+
+.display{
+    background-color: #7e8a79;
+    border-radius: 10px;
+}
+
+.result{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.result>p{
+    font-family: sevenSegments;
+    /* font-weight: 900; */
+    font-size: 4rem;
+    color: #141c16;
+    margin: 0;
+}
+
+.operation-used {
+    display: flex;
+    gap: 1rem;
+}
+
+.operation-used>div {
+    background-color: green;
+}
+
+.top-buttons{
+    display:flex;
+    justify-content: space-around;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+    max-width: inherit;
+}
+
+.btn{
+      background-color: #000;
+      color: white;
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: 700;
+      border: none;
+      margin: 0.2rem;
+      border-radius: 10px;
+      white-space: normal;
+      padding: 0.5rem 0;
+      width: 4.5rem;
+
+}
+
+#add {
+    background-color: #0286ac;
+    color: white;
+    grid-area:  4 / 4 / 6 / 5;
+}
+
+
+
+#clear{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #0286ac;
+    color: white;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 50%;
+    padding: 2.5rem;
+    width: 4rem;
+    height: 4rem;
+}
+
+#clear>p{
+    margin: 0;
+}
+
+#clear>hr{
+    border: 2px solid #FFF;
+    width: 2rem;
+    margin: 0;
+}
+
+.misc{
+    background-color: yellow;
+    width: 4.5rem;
+    height: 1rem;
+    border: none;
+    border-radius: 40%;
+
+}
+
+
+footer {
+    min-height: 50px;
+    background: PapayaWhip;
 }

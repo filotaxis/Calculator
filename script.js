@@ -1,4 +1,4 @@
-const displayResult = document.querySelector(".display>.result");
+const displayResult = document.querySelector(".result>p");
 const btnNums = document.querySelectorAll(".buttons>.num");
 const btnOps = document.querySelectorAll(".buttons>.op");
 
