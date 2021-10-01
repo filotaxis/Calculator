@@ -1,11 +1,13 @@
 const displayResult = document.querySelector(".result>p");
 const btnNums = document.querySelectorAll(".buttons>.num");
-const btnOps = document.querySelectorAll(".buttons>.op");
+const btnOps = document.querySelectorAll(".op");
+const btnOff = document.querySelector("#off");
 
 let displayValue = "";
 let currValue = 0;
 let pastValue = 0;
 let result = 0;
+let turnOn = false;
 let operation;
 
 const add = (a, b) => a + b;
@@ -13,6 +15,8 @@ const substraction = (a, b) => a - b;
 const multiply = (a, b) => a * b;
 const divide = (a, b) => a / b;
 const operate = (operator, a, b) => operator(a, b);
+
+btnOff.addEventListener("click", () => turnOn = false);
 
 btnNums.forEach(button => {
     button.addEventListener("click", () => {
@@ -23,6 +27,8 @@ btnNums.forEach(button => {
 });
 
 function updateOperation() {
+    console.log("pastV: " + pastValue);
+    console.log("currV: " + currValue);
     result= operate(operation, pastValue, currValue);
     displayResult.textContent = result;
     pastValue = result;
@@ -46,7 +52,13 @@ btnOps.forEach(button => {
             
             case "multiply":
                 operation = multiply;
-                updateOperation();
+                console.log("pastV: " + pastValue);
+                console.log("currV: " + currValue);
+                result= operate(operation, pastValue, currValue);
+                displayResult.textContent = result;
+                pastValue = result;
+                currValue = 0;
+                displayValue = "";
                 break;
             
             case "divide":
@@ -55,8 +67,16 @@ btnOps.forEach(button => {
                 break;
         
             case "equal":
-                console.log(`${pastValue} + `);
                 updateOperation();
+                break;
+            
+            case "clear":
+                displayValue = "";
+                currValue = 0;
+                pastValue = 0;
+                result = 0;
+                displayResult.textContent = displayValue;
+
                 break;
         }
     });

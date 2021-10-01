@@ -5,7 +5,7 @@
 
 html,
 body {
-    background-color: teal;
+    background-color: #457b9d;
     margin: 0;
     padding: 0;
     font-family: 'Lucida Sans', Verdana, sans-serif;
@@ -23,25 +23,32 @@ body {
     width: 50%;
     margin: 0 auto;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.top-figure{
+    background-color: #3c3a3b;
+    width: 20rem;
+    padding: 0 0.7rem;
+    height: 2rem;
+    border: none;
+    border-radius: 400px 400px 0 0 / 100px 100px 0 0;
 }
 
 .calculator {
     background-color: #3c3a3b;
     padding: 0 2rem 2rem 2rem;
     width: 20rem;
-    /* border-radius: 30% 30% 10% 10%; */
-    /* border-top-left-radius: 32rem; */
-    /* border-end-end-radius: 50rem; */
-    border-start-end-radius: 20rem;
+    border-radius: 25px 25px 50px 50px / 50px 50px 100px 100px;
 
 }
 
 .top-decoration {
     display: flex;
     justify-content: space-between;
-    padding: 2rem 0 1rem 0;
+    padding: 1rem 0 1rem 0;
 }
 
 .solar-panel{
@@ -75,14 +82,14 @@ body {
 
 .display-space {
     /* background-color: lightslategrey; */
-    padding: 0.5rem;
+    padding: 0 1rem;
 }
 
 .display{
     background-color: #7e8a79;
     border-radius: 10px;
     height: 4rem;
-    margin: 2rem 0 4rem 0;
+    margin: 2rem 0 3rem 0;
 
 }
 
@@ -122,18 +129,17 @@ body {
 }
 
 .btn{
-      background-color: #000;
-      color: white;
-      text-align: center;
-      font-size: 1.8rem;
-      font-weight: 700;
-      border: none;
-      margin: 0.2rem;
-      border-radius: 10px;
-      white-space: normal;
-      padding: 0.5rem 0;
-      width: 4.5rem;
-
+    background-color: #000;
+    color: white;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    border: none;
+    margin: 0.2rem;
+    border-radius: 10px;
+    white-space: normal;
+    padding: 0.5rem 0;
+    width: 4.5rem;
 }
 
 #add {
@@ -198,6 +204,18 @@ body {
 }
 
 footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3rem;
     min-height: 50px;
-    background: PapayaWhip;
+    background: #a8dadc;
+    font-size: 1.5rem;
+    color: #256f9c;
+}
+
+footer>a{
+    color: #9b2226;
+    text-decoration: none;
+    
 }
