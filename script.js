@@ -5,11 +5,9 @@ const btnOps = document.querySelectorAll(".op");
 const btnOff = document.querySelector("#off");
 
 let displayValue = "";
-let currValue = 0;
-let pastValue = 0;
-let result = 0;
+let previousValue = "";
+let operation = undefined;
 let turnOn = false;
-let operation;
 
 const add = (a, b) => a + b;
 const substraction = (a, b) => a - b;
@@ -25,9 +23,8 @@ btnOff.addEventListener("click", () => {
 btnNums.forEach(button => {
     button.addEventListener("click", () => {
         if (turnOn) {
-            display.style["background-color"] = "#7e8a79";
+            if (button.textContent === "." && displayValue.includes(".")) return;
             displayValue += button.textContent;
-            currValue = parseFloat(displayValue);
             displayResult.textContent = displayValue;
         } else {
 
@@ -36,36 +33,63 @@ btnNums.forEach(button => {
     });
 });
 
-function updateOperation() {
-    console.log("pastV: " + pastValue);
-    console.log("currV: " + currValue);
-    result= operate(operation, pastValue, currValue);
-    displayResult.textContent = result;
-    pastValue = result;
-    currValue = 0;
-    displayValue = "";
+// function updateOperation() {
+//     console.log("pastV: " + pastValue);
+//     console.log("currV: " + currValue);
+//     result= operate(operation, pastValue, currValue);
+//     displayResult.textContent = result;
+//     pastValue = result;
+//     currValue = 0;
+//     displayValue = "";
+// }
+
+function compute() {
+    let result; 
+    const prev = parseFloat(previousValue);
+    const curr = parseFloat(displayValue);
+    if (isNaN(prev) || isNaN(curr)) return;    
 }
+
 
 
 btnOps.forEach(button => {
     button.addEventListener("click", () => {
+        
         switch (button.id) {
             case "add":
                 operation = add;
-                updateOperation();
+                if (displayValue === "") return;
+                if (displayValue !== "") {
+                    let result; 
+                    const prev = parseFloat(previousValue);
+                    const curr = parseFloat(displayValue);
+                    if (isNaN(prev) || isNaN(curr)) return;
+                    result = operate(operation, prev, curr);
+                    displayValue = result;
+                    operation = undefined;
+                    previousValue = "";
+
+                }
+                previousValue = displayValue;
+                displayValue = "";
                 break;
             
             case "substraction":
                 operation = substraction;
-                updateOperation();
+                
                 break;
             
             case "multiply":
                 operation = multiply;
+                
+                if(d)
+                // pastValue = 1;
                 console.log("pastV: " + pastValue);
                 console.log("currV: " + currValue);
-                result= operate(operation, pastValue, currValue);
-                displayResult.textContent = result;
+                console.log("resultA: " + result);
+                result = operate(operation, pastValue, currValue);
+                console.log("resultB: " + result);
+                displayResult.textContent = `${result}`;
                 pastValue = result;
                 currValue = 0;
                 displayValue = "";
@@ -77,17 +101,23 @@ btnOps.forEach(button => {
                 break;
         
             case "equal":
-                updateOperation();
+                result= operate(operation, pastValue, currValue);
+                displayResult.textContent = result;
+                pastValue = result;
+                currValue = 0;
+                displayValue = "";
+                lastOperation = "equal";
                 break;
             
             case "clear":
                 turnOn = true;
                 displayValue = "";
                 currValue = 0;
-                pastValue = 0;
+                pastValue = "";
                 result = 0;
-                displayResult.textContent = "0";
+                displayResult.textContent = "_";
                 display.style["background-color"] = "#7e8a79";
+                lastOperation = "clear";
                 break;
         }
     });
