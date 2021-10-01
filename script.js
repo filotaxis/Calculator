@@ -1,4 +1,5 @@
 const displayResult = document.querySelector(".result>p");
+const display = document.querySelector(".display")
 const btnNums = document.querySelectorAll(".buttons>.num");
 const btnOps = document.querySelectorAll(".op");
 const btnOff = document.querySelector("#off");
@@ -16,13 +17,22 @@ const multiply = (a, b) => a * b;
 const divide = (a, b) => a / b;
 const operate = (operator, a, b) => operator(a, b);
 
-btnOff.addEventListener("click", () => turnOn = false);
+btnOff.addEventListener("click", () => {
+    turnOn = false;
+    display.style["background-color"] = "#141c16";
+});
 
 btnNums.forEach(button => {
     button.addEventListener("click", () => {
-        displayValue += button.textContent;
-        currValue = parseFloat(displayValue);
-        displayResult.textContent = displayValue;
+        if (turnOn) {
+            display.style["background-color"] = "#7e8a79";
+            displayValue += button.textContent;
+            currValue = parseFloat(displayValue);
+            displayResult.textContent = displayValue;
+        } else {
+
+        }
+
     });
 });
 
@@ -71,12 +81,13 @@ btnOps.forEach(button => {
                 break;
             
             case "clear":
+                turnOn = true;
                 displayValue = "";
                 currValue = 0;
                 pastValue = 0;
                 result = 0;
-                displayResult.textContent = displayValue;
-
+                displayResult.textContent = "0";
+                display.style["background-color"] = "#7e8a79";
                 break;
         }
     });
