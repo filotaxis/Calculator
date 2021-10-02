@@ -9,7 +9,6 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Lucida Sans', Verdana, sans-serif;
-
 }
 
 body {
@@ -18,6 +17,26 @@ body {
     flex-direction: column;
     justify-content: space-between;
 }
+
+.instructions{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    
+}
+.instructions>h1,
+.instructions>p {
+    color: #FFF;
+    font-size: 3rem;
+    margin: 0;
+}
+
+.instructions>p {
+    font-size: 2rem;
+}
+
 
 .container {
     width: 50%;
@@ -29,7 +48,7 @@ body {
 }
 
 .top-figure{
-    background-color: #3c3a3b;
+    background-color: #333;
     width: 20rem;
     padding: 0 0.7rem;
     height: 2rem;
@@ -38,7 +57,7 @@ body {
 }
 
 .calculator {
-    background-color: #3c3a3b;
+    background-color: #333;
     padding: 0 2rem 2rem 2rem;
     width: 20rem;
     border-radius: 25px 25px 50px 50px / 50px 50px 100px 100px;
