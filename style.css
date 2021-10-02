@@ -59,7 +59,6 @@ body {
 
 .solar-panel>div{
     border: 1px solid #585139;
-    /* background-color: #634b57; */
     background-color: #403534;
     width: 1rem;
 }
@@ -81,12 +80,12 @@ body {
 }
 
 .display-space {
-    /* background-color: lightslategrey; */
     padding: 0 1rem;
 }
 
 .display{
-    background-color: #7e8a79;
+    /* background-color: #7e8a79; */
+    background-color: #141c16;
     border-radius: 10px;
     height: 4rem;
     margin: 2rem 0 3rem 0;
@@ -96,24 +95,16 @@ body {
 .result{
     display: flex;
     flex-direction: row-reverse;
+    align-items: center;
 }
 
 .result>p{
     font-family: sevenSegments;
-    /* font-weight: 900; */
     font-size: 4rem;
     color: #141c16;
     margin: 0;
 }
 
-.operation-used {
-    display: flex;
-    gap: 1rem;
-}
-
-.operation-used>div {
-    background-color: green;
-}
 
 .top-buttons{
     display:flex;
@@ -196,7 +187,7 @@ body {
 }
 
 .misc{
-    background-color: yellow;
+    background-color: #FF0;
     width: 4rem;
     height: 1rem;
     border: none;
