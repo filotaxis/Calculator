@@ -4,50 +4,55 @@ const btnNums = document.querySelectorAll(".buttons>.num");
 const btnOps = document.querySelectorAll(".op");
 const btnOff = document.querySelector("#off");
 
-let displayValue = "";
-let previousValue = "";
+let currentValue = "";
+let pastValue = "";
 let operation = undefined;
+let result = 0;
 let turnOn = false;
 
 const add = (a, b) => a + b;
 const substraction = (a, b) => a - b;
 const multiply = (a, b) => a * b;
-const divide = (a, b) => a / b;
+const divide = (a, b) => b === 0 ? "error :C" : a / b;
 const operate = (operator, a, b) => operator(a, b);
 
 btnOff.addEventListener("click", () => {
     turnOn = false;
     display.style["background-color"] = "#141c16";
+    currentValue = "";
+    pastValue = "";
+    operation = undefined;
+    result = 0;
+    displayResult.textContent = "";
 });
 
 btnNums.forEach(button => {
     button.addEventListener("click", () => {
         if (turnOn) {
-            if (button.textContent === "." && displayValue.includes(".")) return;
-            displayValue += button.textContent;
-            displayResult.textContent = displayValue;
-        } else {
-
-        }
-
+            if (button.textContent === '.' && currentValue.includes('.')) return;
+            currentValue += button.textContent;
+            displayResult.textContent = currentValue;
+                
+            }
+        });
     });
-});
 
-// function updateOperation() {
-//     console.log("pastV: " + pastValue);
-//     console.log("currV: " + currValue);
-//     result= operate(operation, pastValue, currValue);
-//     displayResult.textContent = result;
-//     pastValue = result;
-//     currValue = 0;
-//     displayValue = "";
-// }
-
-function compute() {
-    let result; 
-    const prev = parseFloat(previousValue);
-    const curr = parseFloat(displayValue);
-    if (isNaN(prev) || isNaN(curr)) return;    
+function computation(){
+        if (currentValue === '') return
+        if (pastValue !== '') {
+            const prev = parseFloat(pastValue);
+            const curr = parseFloat(currentValue);
+            if (isNaN(prev) || isNaN(curr)) return;
+            result = operate(operation, prev, curr).toFixed(2);
+            if (result.split(".")[1] === "00") {
+                result = result.split(".")[0];
+            }
+            currentValue = result;
+            pastValue = "";
+        }
+        pastValue = currentValue;
+        currentValue = '';
+        displayResult.textContent = pastValue;
 }
 
 
@@ -58,67 +63,37 @@ btnOps.forEach(button => {
         switch (button.id) {
             case "add":
                 operation = add;
-                if (displayValue === "") return;
-                if (displayValue !== "") {
-                    let result; 
-                    const prev = parseFloat(previousValue);
-                    const curr = parseFloat(displayValue);
-                    if (isNaN(prev) || isNaN(curr)) return;
-                    result = operate(operation, prev, curr);
-                    displayValue = result;
-                    operation = undefined;
-                    previousValue = "";
-
-                }
-                previousValue = displayValue;
-                displayValue = "";
+                computation();
                 break;
             
             case "substraction":
                 operation = substraction;
-                
+                computation();
                 break;
             
             case "multiply":
                 operation = multiply;
-                
-                if(d)
-                // pastValue = 1;
-                console.log("pastV: " + pastValue);
-                console.log("currV: " + currValue);
-                console.log("resultA: " + result);
-                result = operate(operation, pastValue, currValue);
-                console.log("resultB: " + result);
-                displayResult.textContent = `${result}`;
-                pastValue = result;
-                currValue = 0;
-                displayValue = "";
+                computation();
                 break;
             
             case "divide":
                 operation = divide;
-                updateOperation();
+                computation();
                 break;
-        
+                    
             case "equal":
-                result= operate(operation, pastValue, currValue);
-                displayResult.textContent = result;
-                pastValue = result;
-                currValue = 0;
-                displayValue = "";
-                lastOperation = "equal";
+                computation();
                 break;
-            
+                
             case "clear":
                 turnOn = true;
-                displayValue = "";
-                currValue = 0;
-                pastValue = "";
-                result = 0;
-                displayResult.textContent = "_";
                 display.style["background-color"] = "#7e8a79";
-                lastOperation = "clear";
-                break;
+                currentValue = "";
+                pastValue = "";
+                operation = undefined;
+                result = 0;
+                displayResult.textContent = "";
+                break;            
         }
     });
 });
