@@ -8,7 +8,7 @@ let currentValue = "";
 let pastValue = "";
 let operation = undefined;
 let result = 0;
-let turnOn = false;
+let turnOn = true;
 
 const add = (a, b) => a + b;
 const substraction = (a, b) => a - b;

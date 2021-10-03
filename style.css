@@ -18,33 +18,15 @@ body {
     justify-content: space-between;
 }
 
-.instructions{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 2rem;
-    
-}
-.instructions>h1,
-.instructions>p {
-    color: #FFF;
-    font-size: 3rem;
-    margin: 0;
-}
-
-.instructions>p {
-    font-size: 2rem;
-}
-
 
 .container {
     width: 50%;
-    margin: 0 auto;
+    margin: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
 }
 
 .top-figure{
@@ -103,8 +85,8 @@ body {
 }
 
 .display{
-    /* background-color: #7e8a79; */
-    background-color: #141c16;
+    background-color: #7e8a79;
+    /* background-color: #141c16; */
     border-radius: 10px;
     height: 4rem;
     margin: 2rem 0 3rem 0;
@@ -217,15 +199,13 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 0.3rem;
-    min-height: 50px;
+    min-height: 2rem;
     background: #a8dadc;
     font-size: 1.5rem;
     color: #256f9c;
 }
 
-footer>a{
+footer>p>a{
     color: #9b2226;
     text-decoration: none;
-    
 }
